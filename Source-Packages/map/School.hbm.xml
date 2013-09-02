@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2013 9:33:25 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="map.School" table="school" catalog="school">
+        <composite-id name="id" class="map.SchoolId">
+            <key-property name="idschool" type="int">
+                <column name="idschool" />
+            </key-property>
+            <key-property name="subjectIdsubject" type="int">
+                <column name="subject_idsubject" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="subject" class="map.Subject" update="false" insert="false" fetch="select">
+            <column name="subject_idsubject" not-null="true" />
+        </many-to-one>
+        <property name="schoolName" type="string">
+            <column name="schoolName" length="45" />
+        </property>
+        <property name="grade11" type="java.lang.Integer">
+            <column name="`Grade 11`" />
+        </property>
+        <property name="grade10" type="java.lang.Integer">
+            <column name="`Grade 10`" />
+        </property>
+        <property name="grade9" type="java.lang.Integer">
+            <column name="`Grade 9`" />
+        </property>
+    </class>
+</hibernate-mapping>
